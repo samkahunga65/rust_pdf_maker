@@ -7,3 +7,6 @@ edition = "2021"
 actix-web = "4"
 serde = { version = "1.0.217", features = ["derive"] }
 rust_xlsxwriter = "0.81.0"
+actix-ws = "0.3.0"
+futures-util = "0.3.31"
+mysql = "25.0.1"
