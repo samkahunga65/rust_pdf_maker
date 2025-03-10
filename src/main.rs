@@ -1,8 +1,11 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use dotenv::dotenv;
 use rust_xlsxwriter::Workbook;
 use serde::Deserialize;
 
 mod db;
+#[macro_use]
+extern crate dotenv_codegen;
 
 #[derive(Deserialize)]
 struct ExcelPayLoad2 {

@@ -1,3 +1,4 @@
+use dotenv::dotenv;
 use mysql::prelude::*;
 use mysql::*;
 
@@ -18,7 +19,10 @@ pub fn db_conn(
     start_date: String,
     end_date: String,
 ) -> std::result::Result<Vec<ExcelRow>, Box<dyn std::error::Error>> {
-    let url = "mysql://samuel:50$Dot2$Cabages@10.40.10.2:3306/BulkSms";
+    dotenv().ok();
+
+    let url = dotenv!("DATABASE_URL_PROD");
+
     let pool = match Pool::new(url) {
         Ok(e) => e,
         Err(e) => panic!("paniking coz of {:?}", e),
